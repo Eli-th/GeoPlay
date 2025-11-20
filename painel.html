@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Painel • GeoPlay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">GEOPLAY</div>
+    <ul>
+      <li><a href="painel.html" class="active">Painel</a></li>
+      <li><a href="jogos.html">Jogos</a></li>
+      <li><a href="trofeis.html">Troféus</a></li>
+      <li><a href="creditos.html">Créditos</a></li>
+      <li><a href="login.html">Sair</a></li>
+    </ul>
+    <button id="toggleMode" style="background:transparent;border:none;color:var(--muted);cursor:pointer">🌙</button>
+  </nav>
+
+  <div class="container">
+    <h1 class="title">Painel do Usuário</h1>
+    <p class="subtitle">Resumo de progresso e atividades recentes.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start;">
+      <div>
+        <div class="card">
+          <h3 style="margin-top:0">Progresso nos Jogos</h3>
+          <p style="color:var(--muted)">Formas e Ângulos — 70% • Geometria 3D — 40%</p>
+        </div>
+
+        <div style="margin-top:18px;" class="card">
+          <h3>Desafios Recentes</h3>
+          <ul style="color:var(--muted)">
+            <li>Quiz Matemático — 8/10 acertos</li>
+            <li>Formas — exercício 3 — concluído</li>
+            <li>Geometria 3D — progresso 2/5</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h3 style="margin-top:0">Conquistas</h3>
+          <p style="color:var(--muted)">Gênio da Geometria — desbloqueado</p>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3>Atalhos</h3>
+          <p style="color:var(--muted)"><a href="jogos.html" style="color:var(--neon)">Ir para Jogos</a></p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 GeoPlay. Todos os direitos reservados.
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

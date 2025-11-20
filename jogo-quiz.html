@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz Matemático • GeoPlay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .question { font-size:20px; margin-bottom:12px; }
+    .answers { display:flex;flex-direction:column; gap:10px; max-width:600px; }
+    .answer-btn { padding:12px;border-radius:12px;border:none;background:#0f0f10;color:var(--text);cursor:pointer;text-align:left }
+    .answer-btn:hover { box-shadow:0 6px 18px rgba(255,0,120,0.15) }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">GEOPLAY</div>
+    <ul>
+      <li><a href="index.html">Sobre</a></li>
+      <li><a href="jogos.html">Jogos</a></li>
+      <li><a href="trofeis.html">Troféus</a></li>
+      <li><a href="creditos.html">Créditos</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+    <button id="toggleMode" style="background:transparent;border:none;color:var(--muted);cursor:pointer">🌙</button>
+  </nav>
+
+  <div class="container">
+    <h1 class="title">Quiz Matemático</h1>
+    <p class="subtitle">Responda rápido e ganhe troféus!</p>
+
+    <div class="quiz-area" id="gameArea" style="position:relative;min-height:260px;">
+      <div id="quizContent">
+        <div class="question" id="question">Carregando...</div>
+        <div class="answers" id="answers"></div>
+        <div style="margin-top:12px;">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div style="font-weight:700;color:var(--neon)" id="score">0</div>
+            <div style="color:var(--muted)">pontos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>© 2025 GeoPlay</footer>
+
+  <script>
+  // Small quiz implementation - front-end only
+  const questions = [
+    {q:"Qual a soma dos ângulos internos de um triângulo (em graus)?", a:["180","90","360","270"], correct:0},
+    {q:"Área de um círculo (fórmula)?", a:["πr²","2πr","πd","πr"], correct:0},
+    {q:"Quantos lados tem um pentágono?", a:["4","5","6","7"], correct:1},
+    {q:"Um ângulo reto mede:", a:["45°","90°","180°","60°"], correct:1}
+  ];
+
+  let index=0, score=0;
+  const qEl = document.getElementById('question');
+  const ansEl = document.getElementById('answers');
+  const scoreEl = document.getElementById('score');
+
+  function render(){
+    const cur = questions[index];
+    qEl.textContent = cur.q;
+    ansEl.innerHTML = '';
+    cur.a.forEach((txt,i)=>{
+      const b = document.createElement('button');
+      b.className='answer-btn';
+      b.textContent = txt;
+      b.onclick = ()=> {
+        if(i===cur.correct){ score+=10; scoreEl.textContent=score; }
+        index++;
+        if(index>=questions.length){
+          endQuiz();
+        } else render();
+      };
+      ansEl.appendChild(b);
+    });
+  }
+
+  function endQuiz(){
+    qEl.textContent = "Quiz concluído!";
+    ansEl.innerHTML = "<div style='color:var(--muted)'>Sua pontuação: "+score+"</div>";
+    // unlock trophy example (front-end)
+    if(score >= 30){
+      const trophy = document.createElement('div');
+      trophy.className='card trophy-card';
+      trophy.style.marginTop='16px';
+      trophy.innerHTML = '<h3>Gênio da Geometria (desbloqueado)</h3><p style="color:var(--muted)">Parabéns! Você ganhou um troféu.</p>';
+      document.querySelector('.quiz-area').appendChild(trophy);
+    }
+  }
+
+  window.addEventListener('load', ()=> render());
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

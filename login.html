@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login • GeoPlay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">GEOPLAY</div>
+    <ul>
+      <li><a href="index.html">Sobre</a></li>
+      <li><a href="jogos.html">Jogos</a></li>
+      <li><a href="trofeis.html">Troféus</a></li>
+      <li><a href="creditos.html">Créditos</a></li>
+      <li><a href="login.html" class="active">Login</a></li>
+    </ul>
+    <button id="toggleMode" style="background:transparent;border:none;color:var(--muted);cursor:pointer">🌙</button>
+  </nav>
+
+  <div class="login-box">
+    <div class="tabs">
+      <div class="tab active" id="tabAluno">Aluno</div>
+      <div class="tab" id="tabProfessor">Professor</div>
+    </div>
+
+    <form id="formAluno">
+      <input type="email" placeholder="E-mail do aluno" required>
+      <input type="password" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+
+    <form id="formProfessor" class="hidden" style="display:none;">
+      <input type="email" placeholder="E-mail do professor" required>
+      <input type="password" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // show/hide for older browsers
+    document.addEventListener('DOMContentLoaded', function(){
+      const fProf = document.getElementById('formProfessor');
+      if(fProf && fProf.classList.contains('hidden')) fProf.style.display = 'none';
+      const fAluno = document.getElementById('formAluno');
+      if(fAluno && !fAluno.classList.contains('hidden')) fAluno.style.display = 'block';
+
+      // attach toggles to tabs
+      const tAluno = document.getElementById('tabAluno');
+      const tProf = document.getElementById('tabProfessor');
+      tAluno.addEventListener('click', ()=> {
+          tAluno.classList.add('active'); tProf.classList.remove('active');
+          fAluno.style.display = 'block'; fProf.style.display = 'none';
+      });
+      tProf.addEventListener('click', ()=> {
+          tProf.classList.add('active'); tAluno.classList.remove('active');
+          fProf.style.display = 'block'; fAluno.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
