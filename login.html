@@ -1,28 +1,85 @@
-<div class="login-container">
-    <div class="login-box">
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-        <div class="login-header">
-            <h2>Entrar</h2>
-        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoPlay - Login</title>
 
-        <div class="tabs">
-            <div class="tab active" id="tabAluno">Aluno</div>
-            <div class="tab" id="tabProfessor">Professor</div>
-        </div>
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-        <!-- FORM ALUNO -->
-        <form id="formAluno">
-            <input type="email" placeholder="E-mail do aluno" required>
-            <input type="password" placeholder="Senha" required>
-            <button type="submit">Entrar</button>
-        </form>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-        <!-- FORM PROFESSOR -->
-        <form id="formProfessor" class="hidden">
-            <input type="email" placeholder="E-mail do professor" required>
-            <input type="password" placeholder="Senha" required>
-            <button type="submit">Entrar</button>
-        </form>
+<body>
+
+    <!-- FUNDO ANIMADO -->
+    <div class="animated-bg">
+
+        <!-- Formas flutuantes -->
+        <div class="shape-floating shape1"></div>
+        <div class="shape-floating shape2"></div>
+        <div class="shape-floating shape3"></div>
+        <div class="shape-floating shape4"></div>
+        <div class="shape-floating shape5"></div>
+
+        <!-- Equações matemáticas -->
+        <span class="math eq1">a² + b² = c²</span>
+        <span class="math eq2">πr²</span>
+        <span class="math eq3">sen²θ + cos²θ = 1</span>
+        <span class="math eq4">A = (b·h)/2</span>
 
     </div>
-</div>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">GeoPlay</div>
+
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="jogos.html">Jogos</a></li>
+            <li><a href="trofeis.html">Troféus</a></li>
+            <li><a href="creditos.html">Créditos</a></li>
+        </ul>
+
+        <li class="login-btn"><a href="login.html" class="active">Login 🔐</a></li>
+    </nav>
+
+    <!-- ÁREA DE LOGIN -->
+    <div class="login-container">
+        <div class="login-box">
+
+            <div class="login-header">
+                <h2>Entrar no GeoPlay</h2>
+            </div>
+
+            <!-- Abas -->
+            <div class="tabs">
+                <div class="tab active" id="tabAluno">Aluno</div>
+                <div class="tab" id="tabProfessor">Professor</div>
+            </div>
+
+            <!-- FORM ALUNO -->
+            <form id="formAluno">
+                <input type="email" placeholder="E-mail do aluno" required>
+                <input type="password" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+
+            <!-- FORM PROFESSOR -->
+            <form id="formProfessor" class="hidden">
+                <input type="email" placeholder="E-mail do professor" required>
+                <input type="password" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
