@@ -31,7 +31,10 @@ body {
     transition: .25s ease;
 }
 
-/* BACKGROUND ANIMADO */
+/* --------------------------------------------- */
+/*               FUNDO ANIMADO                  */
+/* --------------------------------------------- */
+
 .animated-bg {
     position: fixed;
     inset: 0;
@@ -40,24 +43,46 @@ body {
     overflow: hidden;
 }
 
+/* Formas flutuantes */
+
 .shape-floating {
     position: absolute;
-    width: 110px;
-    height: 110px;
+    width: 120px;
+    height: 120px;
     border: 2px solid rgba(255, 0, 100, 0.3);
-    border-radius: 22px;
+    border-radius: 20px;
     animation: flt 6s ease-in-out infinite alternate;
 }
 
 .shape2 { right: 20%; top: 15%; animation-duration: 9s; }
 .shape3 { left: 15%; bottom: 20%; animation-duration: 7s; }
+.shape4 { top: 70%; left: 60%; animation-duration: 8s; }
+.shape5 { top: 12%; right: 38%; animation-duration: 10s; }
 
 @keyframes flt {
     0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(-50px) rotate(20deg); }
+    100% { transform: translateY(-60px) rotate(20deg); }
 }
 
-/* NAVBAR */
+/* Equações matemáticas */
+
+.math {
+    position: absolute;
+    color: rgba(255, 0, 120, 0.32);
+    font-size: 26px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.eq1 { top: 18%; left: 12%; }
+.eq2 { bottom: 22%; right: 18%; }
+.eq3 { top: 48%; right: 14%; }
+.eq4 { bottom: 30%; left: 28%; }
+
+/* --------------------------------------------- */
+/*                    NAVBAR                    */
+/* --------------------------------------------- */
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -97,7 +122,26 @@ nav a.active {
     text-shadow: 0 0 8px var(--neon);
 }
 
-/* CONTAINER */
+/* Botão de login no topo */
+
+.login-btn a {
+    background: var(--neon);
+    padding: 10px 22px;
+    border-radius: 30px;
+    color: white !important;
+    box-shadow: 0 0 12px rgba(255,0,120,0.5);
+    transition: .3s;
+}
+
+.login-btn a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(255,0,120,0.8);
+}
+
+/* --------------------------------------------- */
+/*                CONTEÚDO E CARDS              */
+/* --------------------------------------------- */
+
 .container {
     max-width: 1100px;
     margin: auto;
@@ -116,14 +160,12 @@ nav a.active {
     font-size: 17px;
 }
 
-/* GRID */
 .games-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 24px;
 }
 
-/* CARDS */
 .card {
     background: var(--card);
     padding: 22px;
@@ -138,7 +180,8 @@ nav a.active {
     box-shadow: 0 0 16px rgba(255,0,100,0.4);
 }
 
-/* TROFEUS */
+/* Troféus */
+
 .trophy-card {
     border: 1px solid rgba(255, 0, 100, 0.25);
     box-shadow: 0 0 14px rgba(255, 0, 120, 0.4);
@@ -150,21 +193,38 @@ nav a.active {
     box-shadow: 0 0 22px rgba(255, 0, 140, 0.7);
 }
 
-/* LOGIN */
+/* --------------------------------------------- */
+/*                  LOGIN PAGE                   */
+/* --------------------------------------------- */
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .login-box {
-    background: var(--card);
-    padding: 30px;
-    max-width: 420px;
-    margin: 40px auto;
-    border-radius: var(--radius);
-    box-shadow: 0 0 22px rgba(255,0,120,0.2);
+    width: 420px;
+    padding: 35px;
+    background: rgba(20,20,20,0.85);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 0 25px rgba(255,0,120,0.35);
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.login-header h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--neon);
 }
 
 .tabs {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #333;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .tab {
@@ -179,10 +239,16 @@ nav a.active {
     border-bottom: 2px solid var(--neon);
 }
 
+.hidden {
+    display: none;
+}
+
 input, button {
     padding: 14px;
     border-radius: var(--radius);
     border: none;
+    width: 100%;
+    margin-bottom: 12px;
 }
 
 input {
@@ -195,9 +261,13 @@ button {
     background: var(--neon);
     color: #fff;
     cursor: pointer;
+    font-size: 16px;
 }
 
-/* JOGO QUIZ */
+/* --------------------------------------------- */
+/*                 QUIZ E PAINEL                 */
+/* --------------------------------------------- */
+
 .quiz-area {
     background: var(--card);
     padding: 20px;
@@ -205,44 +275,12 @@ button {
     min-height: 280px;
 }
 
-/* FOOTER */
-footer {
-    margin-top: 40px;
-    padding: 20px;
-    color: var(--muted);
-    text-align: center;
-    font-size: 14px;
-}
+/* --------------------------------------------- */
+/*                  RESPONSIVIDADE               */
+/* --------------------------------------------- */
 
-/* RESPONSIVE */
 @media (max-width: 700px) {
-    nav ul { display: none; }
-    .title { font-size: 28px; }
-    .container { padding: 20px 12px; }
+    nav ul {
+        display: none;
+    }
 }
-/* EQUAÇÕES NO FUNDO */
-.math {
-    position: absolute;
-    color: rgba(255, 0, 120, 0.32);
-    font-size: 26px;
-    font-weight: bold;
-    pointer-events: none;
-}
-
-.eq1 { top: 18%; left: 12%; }
-.eq2 { bottom: 22%; right: 18%; }
-.eq3 { top: 48%; right: 14%; }
-.eq4 { bottom: 30%; left: 28%; }
-
-/* MAIS FORMAS FLUTUANTES */
-.shape4, .shape5 {
-    width: 150px;
-    height: 150px;
-    border-radius: 12px;
-    border: 2px solid rgba(255, 0, 120, 0.3);
-    position: absolute;
-    animation: flt 8s infinite ease-in-out alternate;
-}
-
-.shape4 { top: 70%; left: 60%; }
-.shape5 { top: 12%; right: 38%; }
